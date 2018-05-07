@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('client App', () => {
+describe('ng4-mdbootstrap App', () => {
   let page: AppPage;
 
   beforeEach(() => {
