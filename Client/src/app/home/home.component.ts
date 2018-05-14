@@ -1,19 +1,15 @@
-import { Component } from "@angular/core";
-import { BeerService, BarObject } from "../services/beer.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent
-{
-    beers : BarObject[];
+export class HomeComponent implements OnInit {
 
-    constructor(private _svc : BeerService) { }
+  constructor() { }
 
-    ngOnInit() {
-        this._svc.getBarList().subscribe(result => this.beers = result);
-    }
-
+  ngOnInit() {
+  }
 
 }

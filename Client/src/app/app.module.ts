@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { BooksComponent } from './books/books.component';
 
-import { BeerService } from './services/beer.service';
+import { AuthService } from './services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { BeerService } from './services/beer.service';
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    BeerService
+    AuthService
   ],
   bootstrap: [AppComponent],
 })
