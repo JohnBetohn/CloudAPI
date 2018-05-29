@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/CloudAPI/CloudAPI/bin/Debug/netcoreapp2.0/CloudAPI.dll",
+            "program": "${workspaceFolder}/CloudAPI/bin/Debug/netcoreapp2.0/CloudAPI.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/CloudAPI/CloudAPI",
+            "cwd": "${workspaceFolder}/CloudAPI",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

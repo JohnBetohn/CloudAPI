@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CloudAPI/CloudAPI/CloudAPI.csproj"
+                "${workspaceFolder}/CloudAPI/CloudAPI.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -4,17 +4,22 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule} from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BooksComponent } from './books/books.component';
 
 import { AuthService } from './services/auth-service.service';
+import { BooksService } from './services/books.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
@@ -22,12 +27,15 @@ import { AuthService } from './services/auth-service.service';
     RouterModule.forRoot([
       {path: "home", component: HomeComponent},
       {path: "", component: HomeComponent},
+      {path: "books", component: BooksComponent},
     ], {useHash: true}),
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    AuthService
+    AuthService,
+    BooksService
   ],
   bootstrap: [AppComponent],
 })
