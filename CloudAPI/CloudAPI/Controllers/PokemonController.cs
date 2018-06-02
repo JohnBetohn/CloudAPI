@@ -22,7 +22,12 @@ namespace CloudAPI.Controllers
         public List<pokemon> GetAllPokemon(string type)
         {
             IQueryable<pokemon> query = context.pokemons;
-            return context.pokemons.ToList();
+
+            if (!string.IsNullOrWhiteSpace(type))
+            {
+                query = query.Where(d => d.Type == type);
+            }
+            return query.ToList();
         }
 
         // GET: api/Pokemon/5
