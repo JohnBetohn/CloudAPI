@@ -5,22 +5,51 @@
   <div class="card-block">
     <div *ngFor="let list of lists">
       <label>
-        <input id="list.list_name" [value]='list.list_name' type="radio" name="lists"> {{list.list_name}}
+        <input id="list.list_name" [value]='list.list_name' type="radio" name="lists" (change)="selectEntry(list)"> {{list.list_name}}
       </label>
     </div>
-    <button class="btn btn-primary" type="button">Selected List</button>
+<!--     <button class="btn btn-primary" type="button" (click)="paginate(0)">Previous</button>
+    <button class="btn btn-primary" type="button" (click)="paginate(1)">Next</button> -->
   </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    Select a book in the selected category
+    These are the best-selling books in this category.
   </div>
   <div class="card-block">
-    <ul>
-      <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ....<!-- {{ item.display_name }} --> </li>
-    </ul>
-               
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <ol>
+      <li *ngFor="let item of books"> {{ item.book_details[0].title }}</li>
+    </ol>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Find books of an author
+  </div>
+  <div class="card-block">
+    <div class="md-form">
+      <input type="text" id="id_author" class="form-control" [(ngModel)]="Search" mdbActive>
+      <label for="id_author">Give the name of an author</label>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Publisher</th>
+          <th>Description</th>
+          <th>ISBN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of authorbooks">
+          <td>{{book?.title}}</td>
+          <td>{{book?.publisher}}</td>
+          <td>{{book?.description}}</td>
+          <td>{{book?.isbn13}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

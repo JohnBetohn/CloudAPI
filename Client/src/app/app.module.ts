@@ -31,6 +31,7 @@ import { BooksService } from './services/books.service';
     ], {useHash: true}),
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
