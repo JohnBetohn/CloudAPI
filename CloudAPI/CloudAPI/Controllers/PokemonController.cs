@@ -19,7 +19,7 @@ namespace CloudAPI.Controllers
         }
         // GET: api/Pokemon
         [HttpGet]
-        public List<pokemon> GetAllPokemon(string type)
+        public List<pokemon> GetAllPokemon(string type, int? page, int length = 5)
         {
             IQueryable<pokemon> query = context.pokemons;
 
@@ -27,6 +27,14 @@ namespace CloudAPI.Controllers
             {
                 query = query.Where(d => d.Type == type);
             }
+
+            if (page.HasValue)
+            {
+                query = query.Skip(page.Value * length);
+            }
+
+            query = query.Take(length);
+
             return query.ToList();
         }
 
