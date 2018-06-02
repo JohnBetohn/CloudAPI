@@ -19,13 +19,41 @@ namespace CloudAPI.Controllers
         }
         // GET: api/Pokemon
         [HttpGet]
-        public List<pokemon> GetAllPokemon(string type, int? page, int length = 5)
+        public List<pokemon> GetAllPokemon(string type, int? page, string sort, int length = 5, string dir = "asc")
         {
             IQueryable<pokemon> query = context.pokemons;
 
             if (!string.IsNullOrWhiteSpace(type))
             {
                 query = query.Where(d => d.Type == type);
+            }
+
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "name":
+                        if (dir == "asc")
+                        {
+                            query = query.OrderBy(d => d.Name);
+                        } else if (dir == "desc")
+                        {
+                            query.OrderByDescending(d => d.Name);
+                        }
+                        break;
+                    case "type":
+                        if (dir == "asc")
+                        {
+                            query = query.OrderBy(d => d.Type);
+                        }
+                        else if (dir == "desc")
+                        {
+                            query.OrderByDescending(d => d.Type);
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
 
             if (page.HasValue)
