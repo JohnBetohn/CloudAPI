@@ -19,7 +19,7 @@ namespace CloudAPI.Controllers
         }
         // GET: api/Pokemon
         [HttpGet]
-        public List<pokemon> GetAllPokemon(string type, int? page, string sort, int length = 5, string dir = "asc")
+        public List<pokemon> GetAllPokemon(string type, int? page, string sort = "ID", int length = 5, string dir = "asc")
         {
             IQueryable<pokemon> query = context.pokemons;
 
@@ -32,6 +32,16 @@ namespace CloudAPI.Controllers
             {
                 switch (sort)
                 {
+                    case "ID":
+                        if (dir == "asc")
+                        {
+                            query.OrderBy(d => d.ID);
+                        }
+                        else if (dir == "desc")
+                        {
+                            query.OrderByDescending(d => d.ID);
+                        }
+                        break;
                     case "name":
                         if (dir == "asc")
                         {
@@ -51,8 +61,6 @@ namespace CloudAPI.Controllers
                             query.OrderByDescending(d => d.Type);
                         }
                         break;
-                    default:
-                        break;
                 }
             }
 
@@ -67,7 +75,8 @@ namespace CloudAPI.Controllers
         }
 
         // GET: api/Pokemon/5
-        [HttpGet("{id}", Name = "Get")]
+        [Route("id/{id}")]
+        [HttpGet]
         public IActionResult Getpokemon(int id)
         {
             var pokemon = context.pokemons.Find(id);

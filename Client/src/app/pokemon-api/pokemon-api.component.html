@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">
+    Registered Pokemon
+  </div>
+  <div class="card-block">
+    <table class="table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let poke of pokemons">
+          <td>{{poke.id}}</td>
+          <td>{{poke.name}}</td>
+          <td>{{poke.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" type="button" (click)="paginate(0)">Previous</button>
+    <button class="btn btn-primary" type="button" (click)="paginate(1)">Next</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Pokemon toevoegen
+  </div>
+  <div class="card-block">
+    <div class="md-form">
+      <input type="text" id="id_author" class="form-control" [(ngModel)]="Name" mdbActive>
+      <label for="id_author">Give the name of the pokemon</label>
+    </div>
+    <div class="md-form">
+      <input type="text" id="id_author" class="form-control" [(ngModel)]="Type" mdbActive>
+      <label for="id_author">Give the type of the pokemon</label>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="add()">Add</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Delete pokemon by ID
+  </div>
+  <div class="card-block">
+    <div class="md-form">
+      <input type="text" id="id_author" class="form-control" [(ngModel)]="ID" mdbActive>
+      <label for="id_author">Give the ID of the pokemon you want to delete</label>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="delete()">Delete</button>
+  </div>
+</div>

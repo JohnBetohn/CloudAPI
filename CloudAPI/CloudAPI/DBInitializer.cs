@@ -129,7 +129,7 @@ namespace CloudAPI
                 pokemonList.Add(new pokemon()
                 {
                     Name = "Beedrill",
-                    Type = "BUg, Poison"
+                    Type = "Bug, Poison"
                 });
 
                 pokemonList.Add(new pokemon()

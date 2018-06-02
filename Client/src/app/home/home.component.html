@@ -1,0 +1,8 @@
+<div *ngIf="auth.isAuthenticated()" class="container">
+    <h1>Welcome to the client of Jonas Luyks</h1>
+    <h2>Gebruikte api --> api.nytimes.com</h2>
+</div>
+
+<div *ngIf="!auth.isAuthenticated()" class="container">
+    Log In to see this page
+</div>

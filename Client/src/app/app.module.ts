@@ -10,16 +10,19 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BooksComponent } from './books/books.component';
+import { PokemonApiComponent } from './pokemon-api/pokemon-api.component';
 
 import { AuthService } from './services/auth-service.service';
 import { BooksService } from './services/books.service';
+import { PokemonService } from './services/pokemon.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
-    BooksComponent
+    BooksComponent,
+    PokemonApiComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { BooksService } from './services/books.service';
       {path: "home", component: HomeComponent},
       {path: "", component: HomeComponent},
       {path: "books", component: BooksComponent},
+      {path: "pokemon", component: PokemonApiComponent}
     ], {useHash: true}),
     HttpClientModule,
     NgxPaginationModule,
@@ -36,7 +40,8 @@ import { BooksService } from './services/books.service';
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     AuthService,
-    BooksService
+    BooksService,
+    PokemonService
   ],
   bootstrap: [AppComponent],
 })
